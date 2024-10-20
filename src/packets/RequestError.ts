@@ -3,7 +3,7 @@ import {Data} from "./Data";
 /** 
  * Sent by the server when an error occurs.
  * 
- * @see https://docs.sc3.io/chatbox/websocket.html#error-packet
+ * @see https://docs.reconnected.cc/chatbox/websocket.html#error-packet
  */
 export interface RequestError extends Data {
     id: number | undefined;

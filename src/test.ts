@@ -1,6 +1,6 @@
-import * as SwitchChat from "./index";
+import * as ReconnectedChat from "./index";
 
-const client = new SwitchChat.Client("");
+const client = new ReconnectedChat.Client("");
 console.log("start")
 
 client.on("ready", () => {

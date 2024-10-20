@@ -23,4 +23,4 @@ export interface RenderedTextObject {
  * - `format` - Minecraft-like [formatting codes](https://minecraft.wiki/w/Formatting_codes) using ampersands
  *  (e.g. `&e` for yellow). Supports colours, but not URLs.
  */
-export type FormattingMode = "markdown" | "format";
+export type FormattingMode = "markdown" | "format" | "minimessage";

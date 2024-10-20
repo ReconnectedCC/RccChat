@@ -1,7 +1,7 @@
 {
-  "name": "switchchat",
-  "version": "3.3.1",
-  "description": "Framework for the SwitchCraft Chatbox v2",
+  "name": "reconnectedchat",
+  "version": "3.4.1",
+  "description": "Framework for the ReconnectedCC Chatbox v2",
   "main": "dist/index.js",
   "types": "types/index.d.ts",
   "scripts": {
@@ -11,20 +11,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Ale32bit/SwitchChat.git"
+    "url": "git+https://github.com/ReconnectedCC/ReconnectedChat.git"
   },
   "keywords": [
-    "switchchat",
-    "switchcraft",
-    "sc3",
+    "reconnectedchat",
+    "reconnectedcc",
+    "rcc",
     "websocket"
   ],
   "author": "Alessandro \"AlexDevs\" Proto",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Ale32bit/SwitchChat/issues"
+    "url": "https://github.com/ReconnectedCC/ReconnectedChat/issues"
   },
-  "homepage": "https://github.com/Ale32bit/SwitchChat#readme",
+  "homepage": "https://github.com/ReconnectedCC/ReconnectedChat#readme",
   "dependencies": {
     "@types/ws": "^8.5.4",
     "ws": "^8.12.0"

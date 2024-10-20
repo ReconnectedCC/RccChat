@@ -7,7 +7,7 @@ export interface User {
     group: "default" | "moderator" | "admin" | string;
 
     /**
-     * The [pronouns](https://docs.sc3.io/faq/pronouns.html) set by the user by running `/pronouns`. This may be `null`
+     * The [pronouns](https://docs.reconnected.cc/faq/pronouns.html) set by the user by running `/pronouns`. This may be `null`
      * if the player has not set any preferred pronouns. Where reasonably possible, you should attempt to use the user's
      * preferred pronouns, or avoid using pronouns entirely. If you are unable to do this, you should use the player's
      * name instead.

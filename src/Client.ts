@@ -29,7 +29,7 @@ export declare interface Client {
     players: User[];
 
     /**
-     * Endpoint of the Chatbox server. Must include `wss://` and the version route. Defaults to `wss://chat.sc3.io/v2/`.
+     * Endpoint of the Chatbox server. Must include `wss://` and the version route. Defaults to `wss://chat.reconnected.cc/v2/`.
      */
     endpoint: string;
 
@@ -75,6 +75,8 @@ export declare interface Client {
      *      Supports URLs, but not colours.
      *   - `format` - Minecraft-like [formatting codes](https://minecraft.wiki/w/Formatting_codes) using
      *      ampersands (e.g. `&e` for yellow). Supports colours, but not URLs.
+     *   - `minimessage` - HTML-like [tags](https://docs.advntr.dev/minimessage/format.html) (e.g. `<yellow></yellow>` for yellow).
+     *     Supports colours and hover events.
      *
      *   If no mode is specified, it will default to the mode specified in the constructor.
      *
@@ -94,6 +96,8 @@ export declare interface Client {
      *      Supports URLs, but not colours.
      *   - `format` - Minecraft-like [formatting codes](https://minecraft.wiki/w/Formatting_codes) using
      *      ampersands (e.g. `&e` for yellow). Supports colours, but not URLs.
+     *   - `minimessage` - HTML-like [tags](https://docs.advntr.dev/minimessage/format.html) (e.g. `<yellow></yellow>` for yellow).
+     *     Supports colours and hover events.
      *
      *   If no mode is specified, it will default to the mode specified in the constructor.
      *
@@ -187,7 +191,7 @@ export declare interface Client {
      * The event received when a server restart has been scheduled. At the time of `restartAt`, the server will restart
      * and the websocket will be disconnected.
      *
-     * @see https://docs.sc3.io/chatbox/websocket.html#server-restart-scheduled-event
+     * @see https://docs.reconnected.cc/chatbox/websocket.html#server-restart-scheduled-event
      * @event
      */
     on(event: "server_restart_scheduled", listener: (event: ServerRestartScheduled) => void): this;
@@ -195,7 +199,7 @@ export declare interface Client {
     /**
      * The event received when a previously scheduled server restart has now been cancelled.
      *
-     * @see https://docs.sc3.io/chatbox/websocket.html#server-restart-cancelled-event
+     * @see https://docs.reconnected.cc/chatbox/websocket.html#server-restart-cancelled-event
      * @event
      */
     on(event: "server_restart_cancelled", listener: (event: ServerRestartCancelled) => void): this;

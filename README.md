@@ -1,36 +1,37 @@
-# SwitchChat v3
+# ReconnectedChat v3
 
-[SwitchCraft Chatbox](https://docs.sc3.io/chatbox/) v2 module for Node.js written in TypeScript
+[ReconnectedCC Chatbox](https://docs.reconnected.cc/chatbox/) v2 module for Node.js written in TypeScript
 
-[![npm version](https://badge.fury.io/js/switchchat.svg)](https://www.npmjs.org/package/switchchat)
+[![npm version](https://badge.fury.io/js/reconnectedchat.svg)](https://www.npmjs.org/package/reconnectedchat)
 
 ## Installation
 
 ```sh
-npm i switchchat
+npm i reconnectedchat
 ```
 
 ## Documentation
 
-In-depth documentation can be found at [docs.sc3.io](https://docs.sc3.io/chatbox/):
+In-depth documentation can be found at [docs.reconnected.cc](https://docs.reconnected.cc/chatbox/):
 
-- [Library documentation](https://docs.sc3.io/chatbox/switchchat.html)
-- [API reference](https://docs.sc3.io/library/switchchat/)
-- [Chatbox websocket API documentation](https://docs.sc3.io/chatbox/websocket.html)
+- [Library documentation](https://docs.reconnected.cc/chatbox/reconnectedchat)
+- [API reference](https://docs.reconnected.cc/library/reconnectedchat/)
+- [Chatbox websocket API documentation](https://docs.reconnected.cc/chatbox/websocket)
 
 ## Example usage
 
-This example will show you how to connect to the SwitchCraft Chatbox API with a basic Hello World bot.
+This example will show you how to connect to the ReconnectedCC Chatbox API with a basic Hello World bot.
 
-1. Obtain a Chatbox token by running `/chatbox license` [in-game](https://sc3.io). You can click the token to copy it to 
+1. Obtain a Chatbox token by running `/chatbox license` [in-game](https://reconnected.cc). You can click the token to
+   copy it to
    your clipboard.
-2. Set up your project with `npm init`, and install SwitchChat by running `npm i switchchat`. 
-   - To make sure ESM modules are used, open `package.json` and set `"type": "module"`.
+2. Set up your project with `npm init`, and install reconnectedchat by running `npm i reconnectedchat`.
+    - To make sure ESM modules are used, open `package.json` and set `"type": "module"`.
 3. Create a file called `index.js` with the following code:
 
 ```ts
-// Import SwitchChat
-import {Client} from "switchchat";
+// Import ReconnectedChat
+import {Client} from "reconnectedchat";
 
 // Create the Chatbox client
 const sc = new Client("YOUR-CHATBOX-TOKEN", {
@@ -49,23 +50,23 @@ sc.on("command", async (cmd) => {
     }
 });
 
-// Event listener for when the client is connected to SwitchCraft and ready to
+// Event listener for when the client is connected to ReconnectedCC and ready to
 // receive messages and events
 sc.on("ready", () => {
     console.log("Connected!");
 });
 
-// Connect to SwitchCraft
+// Connect to ReconnectedCC
 sc.connect();
 ```
 
-4. Run your code! If you used JavaScript you can run it with `node index.js`. When it says "Connected!", run 
-  `\helloworld` in-game, and the Chatbox should respond to you!
+4. Run your code! If you used JavaScript you can run it with `node index.js`. When it says "Connected!", run
+   `\helloworld` in-game, and the Chatbox should respond to you!
 
 ## Events
 
-You are able to listen after the following events, which directly map to the events sent by the 
-[Chatbox websocket API](https://docs.sc3.io/chatbox/websocket.html):
+You are able to listen after the following events, which directly map to the events sent by the
+[Chatbox websocket API](https://docs.reconnected.cc/chatbox/websocket):
 
 | Friendly name     | Name                       | Trigger                                    |
 |-------------------|----------------------------|--------------------------------------------|
@@ -86,8 +87,8 @@ You are able to listen after the following events, which directly map to the eve
 
 ### In-game chat
 
-([Websocket API docs](https://docs.sc3.io/chatbox/websocket.html#in-game-chat-event) &ndash;
-[API reference](https://docs.sc3.io/library/switchchat/interfaces/IngameChatMessage.html))
+([Websocket API docs](https://docs.reconnected.cc/chatbox/websocket#in-game-chat-event) &ndash;
+[API reference](https://docs.reconnected.cc/library/reconnectedchat/interfaces/IngameChatMessage))
 
 The event received when a player posts a message in public chat.
 
@@ -98,8 +99,8 @@ The event received when a player posts a message in public chat.
 
 ### Discord chat
 
-([Websocket API docs](https://docs.sc3.io/chatbox/websocket.html#discord-chat-event) &ndash;
-[API reference](https://docs.sc3.io/library/switchchat/interfaces/DiscordChatMessage.html))
+([Websocket API docs](https://docs.reconnected.cc/chatbox/websocket#discord-chat-event) &ndash;
+[API reference](https://docs.reconnected.cc/library/reconnectedchat/interfaces/DiscordChatMessage))
 
 The event received when a player posts a message in Discord.
 
@@ -112,8 +113,8 @@ The event received when a player posts a message in Discord.
 
 ### Chatbox message
 
-([Websocket API docs](https://docs.sc3.io/chatbox/websocket.html#chatbox-chat-event) &ndash;
-[API reference](https://docs.sc3.io/library/switchchat/interfaces/ChatboxChatMessage.html))
+([Websocket API docs](https://docs.reconnected.cc/chatbox/websocket#chatbox-chat-event) &ndash;
+[API reference](https://docs.reconnected.cc/library/reconnectedchat/interfaces/ChatboxChatMessage))
 
 The event received when another chatbox sends a message.
 
@@ -126,22 +127,22 @@ The event received when another chatbox sends a message.
 
 ### Chatbox command
 
-([Websocket API docs](https://docs.sc3.io/chatbox/websocket.html#command-event) &ndash;
-[API reference](https://docs.sc3.io/library/switchchat/interfaces/ChatboxCommand.html))
+([Websocket API docs](https://docs.reconnected.cc/chatbox/websocket#command-event) &ndash;
+[API reference](https://docs.reconnected.cc/library/reconnectedchat/interfaces/ChatboxCommand))
 
-The event received when a player runs a chatbox command (public backslash commands: `\command`, private owner-only 
+The event received when a player runs a chatbox command (public backslash commands: `\command`, private owner-only
 caret/pipe commands: `^command`) in-game. The `command` capability is required to receive command events.
 
 - user - `User` that ran the chatbox command
-- command - The name of the command (the word immediately following the backslash/caret/pipe, excluding the 
+- command - The name of the command (the word immediately following the backslash/caret/pipe, excluding the
   backslash/caret/pipe). Example: \\**command** arg1 arg2
 - args - Array of space-separated `string` arguments after the command.
 - ownerOnly - `boolean` if the command is an owner-only command (`^command`)
 
 ### Join
 
-([Websocket API docs](https://docs.sc3.io/chatbox/websocket.html#join-event) &ndash;
-[API reference](https://docs.sc3.io/library/switchchat/interfaces/Join.html))
+([Websocket API docs](https://docs.reconnected.cc/chatbox/websocket#join-event) &ndash;
+[API reference](https://docs.reconnected.cc/library/reconnectedchat/interfaces/Join))
 
 The event received when a player joins the game.
 
@@ -149,8 +150,8 @@ The event received when a player joins the game.
 
 ### Leave
 
-([Websocket API docs](https://docs.sc3.io/chatbox/websocket.html#leave-event) &ndash;
-[API reference](https://docs.sc3.io/library/switchchat/interfaces/Leave.html))
+([Websocket API docs](https://docs.reconnected.cc/chatbox/websocket#leave-event) &ndash;
+[API reference](https://docs.reconnected.cc/library/reconnectedchat/interfaces/Leave))
 
 The event received when a player leaves the game.
 
@@ -158,8 +159,8 @@ The event received when a player leaves the game.
 
 ### Death
 
-([Websocket API docs](https://docs.sc3.io/chatbox/websocket.html#death-event) &ndash;
-[API reference](https://docs.sc3.io/library/switchchat/interfaces/Death.html))
+([Websocket API docs](https://docs.reconnected.cc/chatbox/websocket#death-event) &ndash;
+[API reference](https://docs.reconnected.cc/library/reconnectedchat/interfaces/Death))
 
 The event received when a player dies in-game.
 
@@ -171,8 +172,8 @@ The event received when a player dies in-game.
 
 ### World change
 
-([Websocket API docs](https://docs.sc3.io/chatbox/websocket.html#world-change-event) &ndash;
-[API reference](https://docs.sc3.io/library/switchchat/interfaces/WorldChange.html))
+([Websocket API docs](https://docs.reconnected.cc/chatbox/websocket#world-change-event) &ndash;
+[API reference](https://docs.reconnected.cc/library/reconnectedchat/interfaces/WorldChange))
 
 The event received when a player changes worlds.
 
@@ -182,8 +183,8 @@ The event received when a player changes worlds.
 
 ### AFK
 
-([Websocket API docs](https://docs.sc3.io/chatbox/websocket.html#afk-event) &ndash;
-[API reference](https://docs.sc3.io/library/switchchat/interfaces/AFK.html))
+([Websocket API docs](https://docs.reconnected.cc/chatbox/websocket#afk-event) &ndash;
+[API reference](https://docs.reconnected.cc/library/reconnectedchat/interfaces/AFK))
 
 The event received when a player goes AFK in-game.
 
@@ -191,22 +192,22 @@ The event received when a player goes AFK in-game.
 
 ### AFK return
 
-([Websocket API docs](https://docs.sc3.io/chatbox/websocket.html#afk-return-event) &ndash;
-[API reference](https://docs.sc3.io/library/switchchat/interfaces/AFKReturn.html))
+([Websocket API docs](https://docs.reconnected.cc/chatbox/websocket#afk-return-event) &ndash;
+[API reference](https://docs.reconnected.cc/library/reconnectedchat/interfaces/AFKReturn))
 
 The event received when a player returns from being AFK in-game.
 
 ### Server restart scheduled
 
-([Websocket API docs](https://docs.sc3.io/chatbox/websocket.html#server-restart-scheduled-event) &ndash;
-[API reference](https://docs.sc3.io/library/switchchat/interfaces/ServerRestartScheduled.html))
+([Websocket API docs](https://docs.reconnected.cc/chatbox/websocket#server-restart-scheduled-event) &ndash;
+[API reference](https://docs.reconnected.cc/library/reconnectedchat/interfaces/ServerRestartScheduled))
 
-The event received when a server restart has been scheduled. At the time of `restartAt`, the server will restart and the 
-SwitchChat client will be disconnected.
+The event received when a server restart has been scheduled. At the time of `restartAt`, the server will restart and the
+ReconnectedChat client will be disconnected.
 
 If a server restart was scheduled before the websocket connected, then the `server_restart_scheduled` event will be
-sent after the `hello`/`ready` events. In this case, `restartSeconds` will not be the time until the restart, but 
-instead the time that was initially specified for the restart. `time` will still be the initial time the restart was 
+sent after the `hello`/`ready` events. In this case, `restartSeconds` will not be the time until the restart, but
+instead the time that was initially specified for the restart. `time` will still be the initial time the restart was
 scheduled, and `restartAt` will be the time the restart will happen.
 
 - restartType - `string` that tells you what type of restart it is (`"automatic"` or `"manual"`)
@@ -215,8 +216,8 @@ scheduled, and `restartAt` will be the time the restart will happen.
 
 ### Server restart cancelled
 
-([Websocket API docs](https://docs.sc3.io/chatbox/websocket.html#server-restart-cancelled-event) &ndash;
-[API reference](https://docs.sc3.io/library/switchchat/interfaces/ServerRestartCancelled.html))
+([Websocket API docs](https://docs.reconnected.cc/chatbox/websocket#server-restart-cancelled-event) &ndash;
+[API reference](https://docs.reconnected.cc/library/reconnectedchat/interfaces/ServerRestartCancelled))
 
 The event received when a previously scheduled server restart has now been cancelled.
 
@@ -224,31 +225,33 @@ The event received when a previously scheduled server restart has now been cance
 
 ## Rate limits
 
-([Websocket API docs](https://docs.sc3.io/chatbox/websocket.html#rate-limits))
+([Websocket API docs](https://docs.reconnected.cc/chatbox/websocket#rate-limits))
 
 The Chatbox server has a ratelimit of 500ms per license, with up to 5 messages queued at once.
 
-When the methods `client.say` and `client.tell` are called, the data is enqueued internally before being sent to the server.
+When the methods `client.say` and `client.tell` are called, the data is enqueued internally before being sent to the
+server.
 
-This internal queue makes it safe to go well over the limits, because it processes each message every 500ms to avoid hitting the rate limit of the server.
+This internal queue makes it safe to go well over the limits, because it processes each message every 500ms to avoid
+hitting the rate limit of the server.
 
 ## Server -> Client packets
 
-([Websocket API docs](https://docs.sc3.io/chatbox/websocket.html#server-to-client-packets))
+([Websocket API docs](https://docs.reconnected.cc/chatbox/websocket#server-to-client-packets))
 
-You are also able to listen after these packets that are sent by SwitchCraft to the client.
+You are also able to listen after these packets that are sent by ReconnectedCC to the client.
 
-| Friendly name      | Name      | Trigger                                                   |
-|--------------------|-----------|-----------------------------------------------------------|
-| Hello packet       | `ready`   | When SwitchChat has successfully connected to SwitchCraft |
-| Player list packet | `players` | When you connect, and when a player joins/leaves          |
-| Error packet       | `error`   | When there is an error                                    |
-| Closing packet     | `closing` | When the server is closing the connection                 |
+| Friendly name      | Name      | Trigger                                                          |
+|--------------------|-----------|------------------------------------------------------------------|
+| Hello packet       | `ready`   | When ReconnectedChat has successfully connected to ReconnectedCC |
+| Player list packet | `players` | When you connect, and when a player joins/leaves                 |
+| Error packet       | `error`   | When there is an error                                           |
+| Closing packet     | `closing` | When the server is closing the connection                        |
 
 ### Hello packet
 
-([Websocket API docs](https://docs.sc3.io/chatbox/websocket.html#hello-packet) &ndash;
-[API reference](https://docs.sc3.io/library/switchchat/interfaces/Hello.html))
+([Websocket API docs](https://docs.reconnected.cc/chatbox/websocket#hello-packet) &ndash;
+[API reference](https://docs.reconnected.cc/library/reconnectedchat/interfaces/Hello))
 
 - guest - `boolean` that says if you are authenticated with the guest key
 - licenseOwner - `string` that represents who owns the chatbox license
@@ -257,59 +260,64 @@ You are also able to listen after these packets that are sent by SwitchCraft to 
 
 ### Players packet
 
-([Websocket API docs](https://docs.sc3.io/chatbox/websocket.html#players-packet) &ndash; 
-[API reference](https://docs.sc3.io/library/switchchat/interfaces/Players.html))
+([Websocket API docs](https://docs.reconnected.cc/chatbox/websocket#players-packet) &ndash;
+[API reference](https://docs.reconnected.cc/library/reconnectedchat/interfaces/Players))
 
 - players - Array of `User`s that are currently online on the server.
 
 ### Error packet
 
-([Websocket API docs](https://docs.sc3.io/chatbox/websocket.html#error-packet) &ndash;
-[API reference](https://docs.sc3.io/library/switchchat/interfaces/Error.html))
+([Websocket API docs](https://docs.reconnected.cc/chatbox/websocket#error-packet) &ndash;
+[API reference](https://docs.reconnected.cc/library/reconnectedchat/interfaces/Error))
 
-- error - `string` that tells you what type of error that occurred ([possible errors](https://docs.sc3.io/chatbox/websocket.html#error-packet)).
+- error - `string` that tells you what type of error that
+  occurred ([possible errors](https://docs.reconnected.cc/chatbox/websocket#error-packet)).
 - text - `string` that is a human-readable version of `error`.
 
 ### Closing packet
 
-([Websocket API docs](https://docs.sc3.io/chatbox/websocket.html#closing-packet) &ndash;
-[API reference](https://docs.sc3.io/library/switchchat/interfaces/Closing.html))
+([Websocket API docs](https://docs.reconnected.cc/chatbox/websocket#closing-packet) &ndash;
+[API reference](https://docs.reconnected.cc/library/reconnectedchat/interfaces/Closing))
 
-- closeReason - `string` reason for closing the connection ([possible values](https://docs.sc3.io/chatbox/websocket.html#closing-packet)).
+- closeReason - `string` reason for closing the
+  connection ([possible values](https://docs.reconnected.cc/chatbox/websocket#closing-packet)).
 - reason - `string` that is a human-readable version of `closeReason`
 
 ## Methods
 
-You can run these methods on your [`Client`](https://docs.sc3.io/library/switchchat/classes/Client.html) instance.
+You can run these methods on your [`Client`](https://docs.reconnected.cc/library/reconnectedchat/classes/Client)
+instance.
 
 ### client.say
 
-([Websocket API docs](https://docs.sc3.io/chatbox/websocket.html#say-packet) &ndash;
-[API reference](https://docs.sc3.io/library/switchchat/classes/Client.html#say))
+([Websocket API docs](https://docs.reconnected.cc/chatbox/websocket#say-packet) &ndash;
+[API reference](https://docs.reconnected.cc/library/reconnectedchat/classes/Client#say))
 
 - Syntax: `await client.say(text, name, mode)`
-- Returns: Promise<[Success](https://docs.sc3.io/library/switchchat/interfaces/Success.html)>
+- Returns: Promise<[Success](https://docs.reconnected.cc/library/reconnectedchat/interfaces/Success)>
 
 Sends a message to the in-game public chat. Returns a Promise that resolves to a
-[Success](https://docs.sc3.io/library/switchchat/interfaces/Success.html) object, which will tell you if the message
+[Success](https://docs.reconnected.cc/library/reconnectedchat/interfaces/Success) object, which will tell you if the
+message
 was sent (`reason` is `"message_sent"`).
 
 | Argument | Type                        | Description                                                                                                                              |
 |----------|-----------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | `text`   | `string`                    | The message to send.                                                                                                                     |
 | `name`   | `string` (optional)         | The name of the chatbox to show. If no name is specified, it will default to the username of the license owner, or `client.defaultName`. |
-| `mode`   | `FormattingMode` (optional) | The formatting mode to use (`"markdown"` or `"format"`). Defaults to `client.defaultFormattingMode` or `"markdown"`.                     |
+| `mode`   | `FormattingMode` (optional) | The formatting mode to use (`"markdown"`, `"format"` or `"minimessage"`). Defaults to `client.defaultFormattingMode` or `"markdown"`.    |
 
 ### client.tell
 
-([Websocket API docs](https://docs.sc3.io/chatbox/websocket.html#tell-packet) &ndash;
-[API reference](https://docs.sc3.io/library/switchchat/classes/Client.html#tell))
+([Websocket API docs](https://docs.reconnected.cc/chatbox/websocket#tell-packet) &ndash;
+[API reference](https://docs.reconnected.cc/library/reconnectedchat/classes/Client#tell))
 
 - Syntax: `await client.tell(user, text, name, mode)`
-- Returns: Promise<[Success](https://docs.sc3.io/library/switchchat/interfaces/Success.html)>
+- Returns: Promise<[Success](https://docs.reconnected.cc/library/reconnectedchat/interfaces/Success)>
 
-Sends a private message to an in-game player. Returns a Promise that resolves to a 
-[Success](https://docs.sc3.io/library/switchchat/interfaces/Success.html) object, which will tell you if the message
+Sends a private message to an in-game player. Returns a Promise that resolves to a
+[Success](https://docs.reconnected.cc/library/reconnectedchat/interfaces/Success) object, which will tell you if the
+message
 was sent (`reason` is `"message_sent"`).
 
 | Argument | Type                        | Description                                                                                                                              |
@@ -317,39 +325,38 @@ was sent (`reason` is `"message_sent"`).
 | `user`   | `string`, `User`            | The username, UUID or the `User` object of the user to send the message to.                                                              |
 | `text`   | `string`                    | The message to send.                                                                                                                     |
 | `name`   | `string` (optional)         | The name of the chatbox to show. If no name is specified, it will default to the username of the license owner, or `client.defaultName`. |
-| `mode`   | `FormattingMode` (optional) | The formatting mode to use (`"markdown"` or `"format"`). Defaults to `client.defaultFormattingMode` or `"markdown"`.                     |
-
+| `mode`   | `FormattingMode` (optional) | The formatting mode to use (`"markdown"`, `"format"` or `"minimessage"`). Defaults to `client.defaultFormattingMode` or `"markdown"`.    |
 
 ### client.connect
 
-([API reference](https://docs.sc3.io/library/switchchat/classes/Client.html#connect))
+([API reference](https://docs.reconnected.cc/library/reconnectedchat/classes/Client#connect))
 
 - Syntax: `client.connect()`
 
-Connects to SwitchCraft.
+Connects to ReconnectedCC.
 
 ### client.close
 
-([API reference](https://docs.sc3.io/library/switchchat/classes/Client.html#close))
+([API reference](https://docs.reconnected.cc/library/reconnectedchat/classes/Client#close))
 
 - Syntax: `client.close()`
 
-Disconnects the connection to SwitchCraft.
+Disconnects the connection to ReconnectedCC.
 
 ### client.reconnect
 
-([API reference](https://docs.sc3.io/library/switchchat/classes/Client.html#reconnect))
+([API reference](https://docs.reconnected.cc/library/reconnectedchat/classes/Client#reconnect))
 
 - Syntax: `client.reconnect()`
 
-Reconnects to SwitchCraft.
+Reconnects to ReconnectedCC.
 
 ## Data types
 
 ### User object
 
-([Websocket API docs](https://docs.sc3.io/chatbox/websocket.html#user-object) &ndash;
-[API reference](https://docs.sc3.io/library/switchchat/interfaces/User.html))
+([Websocket API docs](https://docs.reconnected.cc/chatbox/websocket#user-object) &ndash;
+[API reference](https://docs.reconnected.cc/library/reconnectedchat/interfaces/User))
 
 The user object represents an in-game player.
 
@@ -357,15 +364,16 @@ The user object represents an in-game player.
 - uuid - The Minecraft UUID of the player, with hyphens.
 - displayName - The user's name as it appears in chat. May differ from `name`.
 - group - The rank of the player, usually `"default"`, `"moderator"` or `"admin"`.
-- pronouns - The [pronouns](https://docs.sc3.io/faq/pronouns.html) set by the user by running `/pronouns`. This may be 
+- pronouns - The [pronouns](https://docs.reconnected.cc/faq/pronouns) set by the user by running `/pronouns`. This may
+  be
   `null` if the player has not set any preferred pronouns. Where reasonably possible, you should attempt to use the
   user's preferred pronouns, or avoid using pronouns entirely. If you are unable to do this, you should use the player's
   name instead.
-- world - The world the player is in, or `null` if this information is not available. It will be a Minecraft namespaced 
+- world - The world the player is in, or `null` if this information is not available. It will be a Minecraft namespaced
   registry key, for example:
-  - `minecraft:overworld` - The overworld
-  - `minecraft:the_nether` - The Nether
-  - `minecraft:the_end` - The End
+    - `minecraft:overworld` - The overworld
+    - `minecraft:the_nether` - The Nether
+    - `minecraft:the_end` - The End
 - afk - If the player is AFK
 - alt - If the player is an alt account
 - bot - If the player is a bot
@@ -375,8 +383,8 @@ The user object represents an in-game player.
 
 ### DiscordUser object
 
-([Websocket API docs](https://docs.sc3.io/chatbox/websocket.html#user-object) &ndash;
-[API reference](https://docs.sc3.io/library/switchchat/interfaces/DiscordUser.html))
+([Websocket API docs](https://docs.reconnected.cc/chatbox/websocket#user-object) &ndash;
+[API reference](https://docs.reconnected.cc/library/reconnectedchat/interfaces/DiscordUser))
 
 The Discord user object represents a user on Discord.
 
@@ -385,20 +393,27 @@ The Discord user object represents a user on Discord.
 - displayName - The user's server nickname on Discord, or their username if it is not set
 - discriminator - The user's discriminator on Discord
 - avatar - URL to the avatar of the user
-- roles - Array consisting of [roles](https://docs.sc3.io/library/switchchat/interfaces/DiscordRole.html).
+- roles - Array consisting of [roles](https://docs.reconnected.cc/library/reconnectedchat/interfaces/DiscordRole).
 
 ### RenderedTextObject
 
-([Websocket API docs](https://docs.sc3.io/chatbox/websocket.html#raw-json-text-object) &ndash;
-[API reference](https://docs.sc3.io/library/switchchat/interfaces/RenderedTextObject.html))
+([Websocket API docs](https://docs.reconnected.cc/chatbox/websocket#raw-json-text-object) &ndash;
+[API reference](https://docs.reconnected.cc/library/reconnectedchat/interfaces/RenderedTextObject))
 
-Minecraft's serialised [raw JSON text format](https://minecraft.wiki/w/Raw_JSON_text_format). See the [SwitchCraft documentation](https://docs.sc3.io/chatbox/websocket.html#raw-json-text-object) for more information on how this is used.
+Minecraft's serialised [raw JSON text format](https://minecraft.wiki/w/Raw_JSON_text_format). See
+the [ReconnectedCC documentation](https://docs.reconnected.cc/chatbox/websocket#raw-json-text-object) for more
+information on how this is used.
 
 ### FormattingMode
 
-([API reference](https://docs.sc3.io/library/switchchat/types/FormattingMode.html))
+([API reference](https://docs.reconnected.cc/library/reconnectedchat/types/FormattingMode))
 
 The mode to use for outgoing chatbox messages (`.say()`, `.tell()`).
 
-- markdown - Discord-like [Markdown syntax](https://support.discord.com/hc/en-us/articles/210298617-Markdown-Text-101-Chat-Formatting-Bold-Italic-Underline-). Supports URLs, but not colours.
-- format - Minecraft-like [formatting codes](https://minecraft.wiki/w/Formatting_codes) using ampersands (e.g. `&e` for yellow). Supports colours, but not URLs.
+- markdown -
+  Discord-like [Markdown syntax](https://support.discord.com/hc/en-us/articles/210298617-Markdown-Text-101-Chat-Formatting-Bold-Italic-Underline-).
+  Supports URLs, but not colours.
+- format - Minecraft-like [formatting codes](https://minecraft.wiki/w/Formatting_codes) using ampersands (e.g. `&e` for
+  yellow). Supports colours, but not URLs.
+- minimessage - HTML-like [tags](https://docs.advntr.dev/minimessage/format.html) (e.g. `<yellow></yellow>` for yellow).
+  Supports colours and hover events.
